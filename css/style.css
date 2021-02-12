@@ -50,6 +50,11 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
 }
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 50%;
+  }
+}
 
 body {
   font-family: "Nunito", sans-serif;
@@ -63,6 +68,12 @@ body {
   display: grid;
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+}
+@media only screen and (max-width: 62.5em) {
+  .container {
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+  }
 }
 
 .heading-1 {
@@ -138,17 +149,36 @@ body {
   background-color: #c69963;
   grid-column: sidebar-start/sidebar-end;
   grid-row: 1/-1;
+  display: flex;
+  justify-content: center;
+}
+@media only screen and (max-width: 62.5em) {
+  .sidebar {
+    grid-column: full-start/full-end;
+    grid-row: 1/span 1;
+    justify-content: flex-end;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
 }
 .sidebar__nav-btn {
   position: sticky;
-  top: 4rem;
+  top: 4.2rem;
   display: block;
-  margin: 4rem auto;
   height: 2px;
-  width: 55%;
+  width: 4rem;
   border: none;
   border-radius: 0;
   background-color: #fff;
+}
+@media only screen and (max-width: 62.5em) {
+  .sidebar__nav-btn {
+    top: 0;
+    position: relative;
+    margin-right: 2.6rem;
+  }
 }
 .sidebar__nav-btn::after, .sidebar__nav-btn::before {
   display: block;
@@ -251,6 +281,11 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 4.2rem;
+}
+@media only screen and (max-width: 62.5em) {
+  .features {
+    grid-row: 3/span 1;
+  }
 }
 
 .feature {

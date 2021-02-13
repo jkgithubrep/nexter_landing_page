@@ -9,15 +9,31 @@
 		grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
 		grid-template-rows: repeat(6, [row-start] 1fr [row-end]);
 		align-items: center;
+
+
+		@media only screen and (max-width: $bp-medium) {
+			grid-column: full-start / full-end;
+			padding: 6vw;
+		}
 	}
 
 	&__picture {
 		width: 100%;
 		box-shadow: $shadow-img;
 
+		@media only screen and (max-width: $bp-medium) {
+			height: 100%;
+			object-fit: cover;
+		}
+
 		&--1 {
 			grid-column: col-start 2 / col-end 5;
 			grid-row: row-start 2 / row-end 5;
+
+			@media only screen and (max-width: $bp-medium) {
+				grid-column: col-start 1 / col-end 4;
+				grid-row: 1 / -1;
+			}
 		}
 
 		&--2 {
@@ -25,6 +41,12 @@
 			grid-column: col-start 4 / col-end-6;
 			grid-row: row-start 4 / row-end 5;
 			z-index: 20;
+
+			@media only screen and (max-width: $bp-medium) {
+				width: 100%;
+				grid-column: col-start 4 / -1;
+				grid-row: row-start 2 / row-end 5;
+			}
 		}
 
 	}
@@ -37,6 +59,11 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
+
+		@media only screen and (max-width: $bp-medium) {
+			grid-column: full-start / full-end;
+			grid-row: 5 / span 1;
+		}
 	}
 
 	&__text {

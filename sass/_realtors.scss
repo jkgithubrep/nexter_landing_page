@@ -13,12 +13,27 @@
 
 	padding: 2rem;
 
+	@media only screen and (max-width: $bp-medium) {
+		grid-column: full-start / full-end;
+		grid-row: 3 / span 1;
+
+		padding: 4.4rem;
+	}
+
 	&__list {
 		display: grid;
 		grid-template-columns: min-content 1fr;
 		column-gap: 1.6rem;
 		row-gap: 5vh;
 		align-items: center;
+
+		@media only screen and (max-width: $bp-medium) {
+			grid-template-columns: repeat(6, max-content);
+		}
+
+		@media only screen and (max-width: $bp-small) {
+			grid-template-columns: min-content 1fr;
+		}
 
 	}
 
